@@ -64,79 +64,52 @@ body {
 .navbar-collapse {
 	position: relative;
 }
-.schedule-post {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
-	margin: 10px;
-	margin-top: 50px;
+
+.post {
+
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    float: left;
+	margin: 25px  30px;
+	padding: 20px;
 	width: 20%;
 	height: auto;
-	position: relative;
-}
-
-.schedule-post:hover {
-	box-shadow: 10px 1px 10px rgba(0, 0, 0, 0.2);
-	position: relative;
-}
-
-.schedule-content {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	padding-left: 5px;
-	border-radius: 20px;
-	width: auto;
-	height: auto;
-
-}
-
-h6 {
-	width: auto;
-	text-align: center;
+	display: block;
 	
 	
-
 }
-
-#add {
-
-	background-image: url(../images/add.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	width: 40px;
-	height: 40px;
-	border-radius: 10px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background-color: #0592ca;
-	position: absolute;
-	width: 100%;
-	margin-left: .5px;
-	bottom: 0;
-	left: 0;
-
-
-
-}
-
-.deleteDay {
-
-	float: right;
-	display: flex;
+#edit {
 	width: 30px;
 	height: 25px;
-	left: 15px;
+	left: auto;
+	float: right;
+	border: none;
 	outline: none;
 	border: none;
-	background-image: url(../images/delete.svg);
+	background-image: url(../images/add.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	opacity: 1;
 	z-index: 0;
 	margin-right: 10px;
-	border-radius: 5px;
-
-
 }
+.schadd{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    float: left;
+	margin: 30px  30px;
+	padding: 10px;
+	width: 20%;
+	 height: 224px; 
+	 text-align: center; 
+}
+.countainer{
+	margin:20px  0 20px 25px ;
+	padding: 2px 16px;
+     
+} 
 .deleteEvent{
 	float: right;
 	display: flex;
@@ -152,98 +125,49 @@ h6 {
 	z-index: 0;
 	margin-right: 10px;
 	border-radius: 5px;
-
-
-
 }
-#edit {
-
-	width: 30px;
-	height: 25px;
-	left: auto;
-	float: right;
-	border: none;
-	outline: none;
-	border: none;
-	background-image: url(../images/add.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	opacity: 1;
-	z-index: 0;
-	margin-right: 10px;
-	border-radius: 5px;
-
-
-
-}
-
-#create {
-	margin-left: 10px;
-	margin-top: 10px;
-	width: auto;
-	height: 350px;
-
-}
-
 #break {
-	width: 15%;
-	height: 8%;
-	border-radius: 50px;
-	display: flex;
-	position: absolute;
+	border-radius: 5px;
 	margin-left: 12px;
-	background-image: url(../images/add.svg);
-	background-repeat: no-repeat;
-	background-position: center;
 }
 h3 {
 	width: auto;
 	text-align: center;
 	color: #5649c0;
 }
-
 h5 {
 	text-align: center;
-	margin-left: -20px;
-	
-
+	color: green;
 }
-
-#che {
-	width: 80px;
-	height: 40px;
-	border-radius: 10px;
-	position: absolute;
-	display: flex;
-}
-
-
-
-.content {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	padding-left: 5px;
-	border-radius: 10px;
+.h6 {
 	width: auto;
-
-
-}
-
-.post {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
-	margin: 10px;
-	width: 300px;
+	text-align: left ;
 	margin-left: 20px;
-	height: auto;
-	position: relative;
+	color: gray;
+} 
+h2{
+	color:#5649c0 ;
+}
+.add {
+	width: 100%;
+	height: 70px;
+	border-radius: 7px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: #5649c0;
+	bottom: 0; 
+	margin :10% 0 0 0 ;
+	left: 0;
+	color: white;
+	font-size: 32px;
 }
 
-#schedule{
-	box-sizing: border-box;
-	display: flex;
-	margin-left: 20px;
-	position: relative;
+#create {
+	margin-top: 40px;
 }
-.countainer{
-	display: flex;
-}
+
+
+
+
+

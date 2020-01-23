@@ -127,7 +127,7 @@ my.append('Content-Type', 'application/json');
                                 contact.innerHTML = html;
                             }
 
-
+// 
             function renderpartner(arr){ 
                 let html="";
                 
@@ -143,10 +143,10 @@ my.append('Content-Type', 'application/json');
                 arr.forEach((data ,i) => {
                     if(i==0){ html +='<div class="row"> '  }
                     html  += `<div class="col-lg-3 col-md-4 col-sm-6">`+
-                `<div class="speaker-post">`+
-                    `<a href="http://www.ebtekarthon.net/jury1.html"><img src="http://localhost:3000`+data.img+`"></a>`+
+                `<div idSpeaker="`+data.id+`" class="speaker-post">`+
+                    `<img src="http://localhost:3000`+data.img+`"  onclick="openSpeaker(event.target)"></a>`+
                     `<div class="speaker-content">`+
-                        `<h2><a href="http://www.ebtekarthon.net/jury1.html">`+data.name+`</a></h2>`+
+                        `<h2  onclick="openSpeaker(event.target)">`+data.name+`</h2>`+
                         `<span>`+data.position+`</span>`+
                     `</div></div></div>`;
                     
@@ -164,10 +164,10 @@ my.append('Content-Type', 'application/json');
                arr.forEach((data,i) => {
                 if(i==0){ html +='<div class="row"> '  }
                    html += `<div class="col-lg-3 col-md-4 col-sm-6">`+
-                `<div class="speaker-post">`+
-                    `<a href="http://www.ebtekarthon.net/jury1.html"><img src="http://localhost:3000`+data.img+`"></a>`+
+                `<div idSpeaker="`+data.id+`" class="speaker-post">`+
+                    `<img src="http://localhost:3000`+data.img+`"  onclick="openSpeaker(event.target)">`+
                     `<div class="speaker-content">`+
-                    `<h2><a href="http://www.ebtekarthon.net/jury1.html">`+data.name+`</a></h2>`+
+                    `<h2 onclick="openSpeaker(event.target)">`+data.name+`</h2>`+
                         `<span>`+data.position+`</span>`+
                     `</div></div></div>`;
                     if((i+1)%4==0){ html += '</div><div class="row"> '; } ;
@@ -200,7 +200,7 @@ my.append('Content-Type', 'application/json');
                 html = '<div class="title-section"><h1>About Ebtekarthon</h1></div><p>'+
                 data.aboutdescr + 
                 '</p><div class="video-box"><iframe class="videoembed" src="https://www.youtube.com/embed/'+data.aboutvidoe+'"></iframe></div> ';
-    
+//
          about.innerHTML = html ; 
             }                
           function renderingSocialMeedia(data){
@@ -274,6 +274,11 @@ my.append('Content-Type', 'application/json');
           day +='</ul></div></div>'; 
           schedule.innerHTML=day ;
             }
-
+            function openSpeaker(trg){
+                console.log(trg);
+                let id=trg.parentElement.getAttribute("idSpeaker");
+                console.log(id);
+                window.location = "../User_Ebtekarthon/profile/profile.html?id="+id;
+              }
 
             ///////// icons  , url viduo , profile 

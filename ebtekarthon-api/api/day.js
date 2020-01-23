@@ -41,9 +41,8 @@ const id = req.body.id;
 	//	res.status(500).send({error:`something failed`})
 	}
 	console.log(result);
-		//res.json({status: `success`})
 		connection.end();
-		 res.send(result);
+		res.status(201).send(result);
 		});
 	});
 });  

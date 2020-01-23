@@ -1,6 +1,6 @@
 const inputfile = document.getElementById("fileInput"),
     imgInp = document.getElementById('imgInp'),
-    d64 = "";
+    b64 = "";
 
 function readURL(input) {
     if (input.files && input.files[0]) {

@@ -1,7 +1,7 @@
 const inputfile = document.getElementById("fileInput"),
     imgInp = document.getElementById('imgInp')
     ;
-let pathimg = "" , d64 = "";
+let pathimg = "" , b64 = "";
 
 function readURL(input) {
     console.log(input.files && input.files[0]);

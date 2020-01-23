@@ -28,7 +28,7 @@ router.delete(routeBase + '/', (req, res) => {
   let id = req.body.id;
   createDatabaseConnection((error, connection) => {
     if (error) {
-      req.status(500);
+      res.status(500);
       return;
     }
     connection.query(`DELETE FROM ${DB_NAME}.contact_inf  WHERE id  = ` + id, function (err, result) {

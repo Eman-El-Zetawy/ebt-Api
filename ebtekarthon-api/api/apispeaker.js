@@ -78,4 +78,23 @@ router.get(routeBase, (req, res) => {
         });
     });
 });
+
+router.get(routeBase+"/:id", (req, res) => {
+
+    let id = req.params.id;
+    createDatabaseConnection((error, connection) => {
+        if (error) {
+            req.status(500)
+            return;
+        }
+        connection.query(`SELECT * FROM  ${DB_NAME}.speaker_inf WHERE id =`+ id , function (err, result) {
+            if (err) throw err;
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "*");
+            console.log(result);
+            connection.end();
+            res.send(result);
+        });
+    });
+});
 module.exports = router;

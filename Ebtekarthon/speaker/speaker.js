@@ -1,6 +1,6 @@
 const inputfile = document.getElementById("fileInput"),
   imgInp = document.getElementById('imgInp'),
-  d64 = "";
+  b64 = "";
 
 function readURL(input) {
   console.log(input.files && input.files[0]);
@@ -59,7 +59,6 @@ function add() {
 
 function create() {
   if (document.getElementById("name").value == "" && document.getElementById("position").value == "" && document.getElementById("email").value == "" && document.getElementById("brif").value == "") {
-
     alert(" Forms must not be empty!")
   } else {
     add();

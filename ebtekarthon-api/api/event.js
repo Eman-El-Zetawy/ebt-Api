@@ -29,33 +29,10 @@ event.post(routeBase, (req, res) => {
 });
 })
 
-// event.post(addEvent, (req, res) => {
-// 	res.header("Access-Control-Allow-Origin", "*");
-// 	res.header("Access-Control-Allow-Headers", "*");
-// 	createDatabaseConnection((error, connection) => {
-// 		if (error) {
-// 			console.log(error);
-// 			return;
-// 		}
-// 		 qu=`INSERT INTO ${DB_NAME}.event_inf (hour, title, day_id) VALUES ( '` + req.body.hour +"','" +req.body.title + "','" + req.body.day_id + " ');"
-// 		connection.query(qu, function (err, result) {
-// 			if(err) throw err;
-// 			let data = {
-// 				hour: req.body.hour,
-// 				title: req.body.title,
-// 				day_id: req.body.day_id
-// 			};
-// 			connection.end();
-// 			res.send(data);
-// 		});
-// 	});
-// })
-
-
-event.delete(routeBase , (req, res) => {
+event.delete(routeBase +'/', (req, res) => {
 	createDatabaseConnection((error, connection) => {
 		if (error) {
-			req.status(404);
+			res.status(404);
 			return;
 		}
 		const id = req.body.id;
@@ -64,31 +41,14 @@ event.delete(routeBase , (req, res) => {
 		console.log(sql);
 		connection.query(sql , function (err, result) {
 		if(err) {
-			res.status(500).send({error:`something failed`})
+			console.log(err);
 		}
-			res.json({status: `success`})
 			console.log(result);
 			connection.end();
-			res.send(result);
+			res.status(201).send(result);
 		});
 	});
 });
 
-
-// event.get(routeBase, (req, res) => {
-// 	res.header("Access-Control-Allow-Origin", "*");
-// 	res.header("Access-Control-Allow-Headers", "*");
-// 	createDatabaseConnection((error, connection) => {
-// 		if (error) {
-// 			console.log(error);
-// 			return;
-// 		}
-// 		connection.query(`SELECT * FROM ${DB_NAME}.event_inf`, function (err, result) {
-// 			connection.end();
-// 			console.log(result);
-// 			res.send(result);
-// 		});
-// 	});
-// });
 
 module.exports = event;
