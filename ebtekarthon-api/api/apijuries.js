@@ -75,7 +75,7 @@ router.get(routeBase, (req, res) => {
     });
 });
 
-router.get("/juries/:id", (req, res) => {
+router.get(routeBase+"/:id", (req, res) => {
 
     let id = req.params.id;
     createDatabaseConnection((error, connection) => {
@@ -83,7 +83,7 @@ router.get("/juries/:id", (req, res) => {
             req.status(500)
             return;
         }
-        connection.query(`SELECT bio FROM  ${DB_NAME}.jurie_inf WHERE id IN (` + id + `)`, function (err, result) {
+        connection.query(`SELECT * FROM  ${DB_NAME}.jurie_inf WHERE id =`+id , function (err, result) {
             if (err) throw err;
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "*");
