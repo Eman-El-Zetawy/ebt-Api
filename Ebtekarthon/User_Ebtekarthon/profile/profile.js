@@ -11,9 +11,12 @@ function getParameterByName(name, url) {
 var s = document.getElementById('section');
 
 let id = getParameterByName("id",url);
-console.log(id);
+let name =getParameterByName("name",url);
+
+console.log(id , name);
 const my = new Headers();
 my.append('Content-Type', 'application/json');
+if(name=="speaker"){
 fetch('http://localhost:3000/speaker/'+id, {
 		method: 'GET',
 		headers: my
@@ -23,7 +26,18 @@ fetch('http://localhost:3000/speaker/'+id, {
 console.log(data);
 		render(days);
     });
-
+}
+if(name=="juries"){
+    fetch('http://localhost:3000/juries/'+id, {
+		method: 'GET',
+		headers: my
+	}).then(response => response.json())
+	.then((data) => {
+		days = data;
+console.log(data);
+		render(days);
+    });
+}
    function render(arr){
         console.log(arr);
 let html = "";

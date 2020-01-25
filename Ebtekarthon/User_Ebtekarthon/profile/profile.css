@@ -31,7 +31,6 @@ img{
     margin-top: 100px;
     border: gray 3px solid ;
     height: auto;
-    /* font-size: xx-large; */
 }
 .nav{
     background-color:#343A40;
@@ -45,6 +44,5 @@ img{
 }
 h4{
     color: #5649c0;
-}
-
+} 
 

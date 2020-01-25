@@ -34,12 +34,18 @@ let z=0, day="" ;
 		'<div class="schedule-content"><h3 id="show"  >'+obj.day_date+'</h3><hr><div>';
 			z = obj.id ;
 	
-}	
+}	if(obj.title ==="Break!" || obj.title=="Lunch Break!"){
+	day +='<div class="i" event-id="'+obj.event_id +'">'+
+	'<img src="../images/green.jpeg" alt="" id="break" style="width: 40px;"><input type="button" id="'+obj.event_id +'" class="deleteEvent" onclick="removeEvent(this.id)" ><h5>'+
+	obj.time +'</h5><h6 class="h6">'+obj.title +'</h6><hr></div>' ;
+}
+else {
 
 		day +='<div class="i" event-id="'+obj.event_id +'">'+
 		'<img src="../images/m1.jpg" alt="" id="break" ><input type="button" id="'+obj.event_id +'" class="deleteEvent" onclick="removeEvent(this.id)" ><h5>'+
 		obj.time +'</h5><h6 class="h6">'+obj.title +'</h6><hr></div>' ;
 	
+}
 	}	
 });
 day +='</div></div></div>';

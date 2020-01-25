@@ -1,6 +1,6 @@
 const inputfile = document.getElementById("fileInput"),
-  imgInp = document.getElementById('imgInp'),
-  b64 = "";
+  imgInp = document.getElementById('imgInp');
+ let  b64 = "";
 
 function readURL(input) {
   console.log(input.files && input.files[0]);
@@ -26,7 +26,7 @@ inputfile.onchange = function () {
     img = new FileReader();
   img.onloadend = function () {
     b64 = img.result.replace(/^data:.+;base64,/, '');
-  };
+};
   img.readAsDataURL(file);
 };
 

@@ -19,7 +19,7 @@ let html = '';
   speakers.forEach(item => {
     console.log(item);
     html += `<div class="card">
-      <img src='http://localhost:3000${item.img}' alt="Avatar">
+      <img src="http://localhost:3000${item.img}" alt="Avatar">
       <div class="container">
       <h4><b>${item.name}</b></h4>
       <p>${item.bio}</p><br>

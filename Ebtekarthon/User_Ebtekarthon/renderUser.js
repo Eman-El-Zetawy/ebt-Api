@@ -1,4 +1,3 @@
-
 const  partner =  document.getElementById("idpartner"),
        contact  =  document.getElementById("idcontact") ,
        speaker= document.getElementById('idspeaker'),
@@ -11,7 +10,6 @@ const  partner =  document.getElementById("idpartner"),
        logo = document.getElementById('idlogo'),
        schedule =document.getElementById('idSchedule')
        ;
-
 
    const my = new Headers();
 
@@ -49,9 +47,6 @@ my.append('Content-Type', 'application/json');
                             RenderingJuries(data);
                 });
 
-
-
-
         fetch('http://localhost:3000/home', {
                     method: 'GET',
                     headers: my }).then(response => response.json()).then((data) => {
@@ -59,8 +54,6 @@ my.append('Content-Type', 'application/json');
                     console.log(data);
                     renderingHome(data[0]);
             });
-
-
           fetch('http://localhost:3000/about', {
                     method: 'GET',
                     headers: my
@@ -107,14 +100,10 @@ my.append('Content-Type', 'application/json');
             renderSchedule(data);
          });
 
-       
-
-
+    
 /////////////Function Randering 
                 function rendercontact(arr){
                             let html ="";
-                            
-
                             arr.forEach(a=> { 
                                 console.log(a.img);
                         html+='<div class="col-lg-4 col-md-6">'+
@@ -155,19 +144,15 @@ my.append('Content-Type', 'application/json');
 
             speaker.innerHTML = html;
             }
-
-
-
-
             function RenderingJuries(arr) {
                let html = "";
                arr.forEach((data,i) => {
                 if(i==0){ html +='<div class="row"> '  }
                    html += `<div class="col-lg-3 col-md-4 col-sm-6">`+
-                `<div idSpeaker="`+data.id+`" class="speaker-post">`+
-                    `<img src="http://localhost:3000`+data.img+`"  onclick="openSpeaker(event.target)">`+
+                `<div idJuries="`+data.id+`" class="speaker-post">`+
+                    `<img src="http://localhost:3000`+data.img+`"  onclick="openJuries(event.target)">`+
                     `<div class="speaker-content">`+
-                    `<h2 onclick="openSpeaker(event.target)">`+data.name+`</h2>`+
+                    `<h2 onclick="openJuries(event.target)">`+data.name+`</h2>`+
                         `<span>`+data.position+`</span>`+
                     `</div></div></div>`;
                     if((i+1)%4==0){ html += '</div><div class="row"> '; } ;
@@ -216,20 +201,20 @@ my.append('Content-Type', 'application/json');
         function renderingLogo(data) {
             console.log(data);
                 let html = "";
-                html = '<a class="navbar-brand" href="http://www.ebtekarthon.net/index.html">'+
+                html = '<a class="navbar-brand" href="./Ebtekarthon.html">'+
                 '<img src="http://localhost:3000'+data.headerlogo+'" alt=""></a>' ; 
                 logo.innerHTML = html;
 
             }
-
+ 
             function renderingVenue(data){
                 console.log(data);
               let html ="";
-              html = ' <i class="ionicons ion-ios-location-outline"></i><p >'+
+              html = '<p ><img src="gallery/location.png" style="width: 40px;">'+
               data.location+
-              '</p><i class="ionicons ion-ios-telephone-outline"></i><p>'+
+              '</p><p><img src="gallery/telephone_blue.png" style="width: 40px;"></img>'+
               data.numphone +
-              '</p><i class="ionicons ion-ios-email-outline"></i><p>'+
+              '</p></i><p><img src="gallery/email (1).png" style="width: 40px;">'+
               data.email+
               '	</p> ';
               venue.innerHTML =html ;
@@ -238,27 +223,30 @@ my.append('Content-Type', 'application/json');
 
             function renderSchedule(arr){
                 let day = "" ;;
-    let z=arr[0].id ;
-    day +='<div class="col-lg-4"><div class="schedule-block"><h2>'+
-    arr[0].day_date +'</h2><ul class="schedule-list">';
+    let z=0;
           arr.forEach((obj,i)=>{
               if(obj.event_id !==null){
+
                   if(z !==obj.id){
-                    day +='</ul></div></div><div class="col-lg-4"><div class="schedule-block"><h2>'+
+                      if(z !==0){
+                          day +='</ul></div></div>';
+                      }
+                    day +='<div class="col-lg-4"><div class="schedule-block"><h2>'+
                     obj.day_date +'</h2><ul class="schedule-list">';
                     z = obj.id ;
                   }
                   if(obj.title=="Break!"){
                         day += '<li class="time-off-item"><span class="time">'+
                         obj.time+
-                        '</span><i class="ionicons ion-coffee"></i><span class="time-off">'+
+                        '</span><img src="gallery/green.jpeg"  style="width: 40px;"><span class="time-off">'+
                         obj.title +
                         '</span></li>' ;
                         }
+                 
                         else if (obj.title=="Lunch Break!"){
                             day +='<li class="time-off-item"><span class="time">'+
                             obj.time+
-                            '</span><i class="ionicons ion-coffee"></i><span class="time-off">'+
+                            '</span><img src="gallery/green.jpeg"  style="width: 40px;"><span class="time-off">'+
                             obj.title+
                             '</span></li>';
                         }
@@ -274,11 +262,20 @@ my.append('Content-Type', 'application/json');
           day +='</ul></div></div>'; 
           schedule.innerHTML=day ;
             }
+
+
             function openSpeaker(trg){
                 console.log(trg);
                 let id=trg.parentElement.getAttribute("idSpeaker");
                 console.log(id);
-                window.location = "../User_Ebtekarthon/profile/profile.html?id="+id;
+                window.location = "../User_Ebtekarthon/profile/profile.html?id="+id+'&name=speaker';
               }
 
-            ///////// icons  , url viduo , profile 
+      function openJuries(trg){
+          console.log(trg);
+          let id=trg.parentElement.getAttribute("idJuries");
+          console.log(id);
+          window.location = "../User_Ebtekarthon/profile/profile.html?id="+id+'&name=juries';
+        
+
+      }
