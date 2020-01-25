@@ -44,8 +44,7 @@ let html = "";
 html = '<div class="img"><img src="http://localhost:3000'+arr[0].img+'">'+
 '<p id="name">'+arr[0].name+'</p>'+
 '<p id="position">'+arr[0].position+'</p></div>'+
-'<div class="des"><h4 id="name1">'+arr[0].name+'</h4>'+
-'<p id="des">'+arr[0].bio+'</p><p id="email"><a href="http://localhost:3000'+arr[0].email+'">'+arr[0].email+'</a></p></div>' ; 
+'<div class="des">'+
+'<p id="des">'+arr[0].bio+'</p><hr><p id="email"><a href="http://localhost:3000'+arr[0].email+'">'+arr[0].email+'</a></p></div>' ; 
 s.innerHTML=html ; 
-
     }
